@@ -4,6 +4,7 @@ import com.exaltit.kata.domain.domain.model.CompteDomainModel;
 import com.exaltit.kata.domain.port.api.CompteServicePort;
 import com.exaltit.kata.domain.port.spi.CompteJpaPort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;

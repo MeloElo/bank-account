@@ -12,4 +12,5 @@ public interface CompteRestMapper {
 
     CompteDTO compteDomainModelToDto(CompteDomainModel compteDomainModel);
 
+    CompteDomainModel DtotoDomainModel(CompteDTO compteDto);
 }

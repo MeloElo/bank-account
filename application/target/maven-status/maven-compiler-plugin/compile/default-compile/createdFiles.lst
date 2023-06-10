@@ -1,0 +1,3 @@
+com\exaltit\kata\domain\application\service\CompteApplicationService.class
+com\exaltit\kata\domain\application\service\TransactionApplicationService.class
+com\exaltit\kata\domain\application\Main.class

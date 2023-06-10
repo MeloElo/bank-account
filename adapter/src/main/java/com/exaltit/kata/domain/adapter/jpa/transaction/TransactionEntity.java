@@ -10,7 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
 @Entity
-@Table(name = "transactions")
+@Table(name = "transaction")
 public class TransactionEntity {
 
     @Id
@@ -23,7 +23,7 @@ public class TransactionEntity {
     @Column(nullable = false, name = "numCompte")
     private Long numCompte;
 
-    @Column(name = "date_transaction")
+    @Column(name = "date")
     private Instant date;
 
     @Column(name = "solde")

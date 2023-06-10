@@ -20,7 +20,7 @@ public class TransactionController {
 
     private final TransactionServicePort transactionServicePort;
     @Operation(summary = "récuperer la liste des transactions ")
-    @GetMapping("/transactions")
+    @GetMapping
     public List<TransactionDTO> getTransactions() {
         return TRANSACTION_REST_MAPPER.transactionDomainModelToDto(transactionServicePort.getAllTransactions());
     }
