@@ -1,8 +1,6 @@
 package com.exaltit.kata.domain.port.spi;
 
 import com.exaltit.kata.domain.domain.model.CompteDomainModel;
-
-
 import java.math.BigDecimal;
 
 public interface CompteJpaPort {

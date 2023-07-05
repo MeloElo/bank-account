@@ -2,7 +2,12 @@ package com.exaltit.kata.domain.adapter.rest.compte;
 
 
 import com.exaltit.kata.domain.port.api.CompteServicePort;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -17,11 +22,19 @@ import static com.exaltit.kata.domain.adapter.rest.compte.CompteRestMapper.COMPT
 @RequestMapping("/api/compte")
 @Validated
 @RequiredArgsConstructor
+@OpenAPIDefinition(tags = {@Tag(name = "CompteController")})
 public class CompteController {
 
     private final CompteServicePort compteServicePort;
-    @Operation(summary = "récuperer le solde du compte ")
+
     @GetMapping("/solde")
+    @Operation(
+            summary = "recuperer le solde",
+            description = "Service de recuperation de solde d'un compte")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Succès"),
+            @ApiResponse(responseCode = "500", description = "Erreur", content = @Content)
+    })
     public BigDecimal getSoldeByNumCompte(@RequestParam Long numCompte) {
         return compteServicePort.getSoldeByNumCompte(numCompte);
     }
@@ -32,13 +45,13 @@ public class CompteController {
     }
 
     @Operation(summary = "Créditer le compte ")
-    @PostMapping
+    @PostMapping("/crediter-compte")
     public CompteDTO crediterCompteRest(@RequestParam BigDecimal montant, @RequestParam Long numCompte) {
         return COMPTE_REST_MAPPER.compteDomainModelToDto(compteServicePort.crediterCompte(montant, numCompte));
     }
 
     @Operation(summary = "Débiter le compte ")
-    @PostMapping
+    @PostMapping("/debiter-compte")
     public CompteDTO debiterCompteRest(@RequestParam BigDecimal montant, @RequestParam Long numCompte) {
         return COMPTE_REST_MAPPER.compteDomainModelToDto(compteServicePort.debiterCompte(montant, numCompte));
     }

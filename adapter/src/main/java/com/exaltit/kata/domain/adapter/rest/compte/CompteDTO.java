@@ -8,6 +8,6 @@ import java.math.BigDecimal;
 public class CompteDTO {
     BigDecimal solde;
     Long refTransaction;
-    Long NumClient;
+    Long numCompte;
 
 }

@@ -15,7 +15,7 @@ public class CompteEntity {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false, name = "numCompte")
     private Long numCompte;
@@ -24,6 +24,6 @@ public class CompteEntity {
     private BigDecimal solde;
 
     @Column(name = "refTransaction")
-    private Instant refTransaction;
+    private Long refTransaction;
 
 }

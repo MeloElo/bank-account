@@ -4,7 +4,6 @@ import com.exaltit.kata.domain.domain.model.CompteDomainModel;
 import com.exaltit.kata.domain.port.spi.CompteJpaPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 
 @Component
@@ -25,6 +24,6 @@ public class CompteJpaAdapter implements CompteJpaPort {
 
     @Override
     public BigDecimal getSoldeByNumCompte(Long numCompte) {
-        return compteRepository.getSoldeByNumCompte(numCompte);
+        return compteRepository.findByNumCompte(numCompte).getSolde();
     }
 }

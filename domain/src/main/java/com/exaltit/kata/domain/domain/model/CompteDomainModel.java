@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Builder
 public class CompteDomainModel {
 
+    Long id;
     BigDecimal solde;
     Long refTransaction;
     Long numCompte;
