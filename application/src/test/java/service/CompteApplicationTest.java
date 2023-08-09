@@ -1,8 +1,9 @@
 package service;
 
-import com.exaltit.kata.domain.domain.model.CompteDomainModel;
-import com.exaltit.kata.domain.port.spi.CompteJpaPort;
-import com.exaltit.kata.domain.application.service.CompteApplicationService;
+import com.exaltit.domain.model.CompteDomainModel;
+import com.exaltit.domain.model.TransactionDomainModel;
+import com.exaltit.domain.port.api.CompteJpaPort;
+import com.exaltit.application.service.CompteApplicationService;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -10,6 +11,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -25,9 +29,11 @@ class CompteApplicationTest {
 
     @BeforeEach
     void init(){
+        TransactionDomainModel transaction = new TransactionDomainModel(1l,1l, Instant.now(),BigDecimal.valueOf(200));
+        transaction.setRefTransaction(92852l);
         compteDomainModel = CompteDomainModel.builder()
                 .solde(BigDecimal.valueOf(10000))
-                .refTransaction(92852l)
+                .transactions(List.of(transaction))
                 .numCompte(2002l)
                 .build();
     }

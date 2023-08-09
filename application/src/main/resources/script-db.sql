@@ -18,3 +18,5 @@ insert into transactions values(
 insert into compte values(
 1,1,1000,1
 );
+
+ALTER TABLE transactions ADD CONSTRAINT `fk_compte_tansactions` FOREIGN KEY (`numCompte`) REFERENCES `compte` (`numCompte`)

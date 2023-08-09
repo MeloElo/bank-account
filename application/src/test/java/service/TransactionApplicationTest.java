@@ -1,10 +1,9 @@
 package service;
 
-import com.exaltit.kata.domain.domain.model.TransactionDomainModel;
-import com.exaltit.kata.domain.port.spi.TransactionJpaPort;
-import com.exaltit.kata.domain.application.service.TransactionApplicationService;
+import com.exaltit.domain.model.TransactionDomainModel;
+import com.exaltit.domain.port.api.TransactionJpaPort;
+import com.exaltit.application.service.TransactionApplicationService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,7 +32,12 @@ class TransactionApplicationTest {
 
     @BeforeEach
     void init(){
-        transactionDomainModel = new TransactionDomainModel(22l,2000l,Instant.now(),BigDecimal.valueOf(2000));
+        transactionDomainModel = TransactionDomainModel.builder()
+                .refTransaction(22l)
+                .numCompte(2000l)
+                .date(Instant.now())
+                .solde(BigDecimal.valueOf(2000))
+                .build();
     }
 
     @Test
