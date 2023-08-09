@@ -1,8 +1,0 @@
-com\exaltit\kata\domain\port\api\TransactionServicePort.class
-com\exaltit\kata\domain\domain\model\CompteDomainModel.class
-com\exaltit\kata\domain\port\spi\CompteJpaPort.class
-com\exaltit\kata\domain\domain\model\CompteDomainModel$CompteDomainModelBuilder.class
-com\exaltit\kata\domain\Main.class
-com\exaltit\kata\domain\port\api\CompteServicePort.class
-com\exaltit\kata\domain\domain\model\TransactionDomainModel.class
-com\exaltit\kata\domain\port\spi\TransactionJpaPort.class
